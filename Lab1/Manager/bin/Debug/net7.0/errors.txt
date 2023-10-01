@@ -1,0 +1,18 @@
+Error occured in the first process: Process exceeded the timeout of 500 milliseconds. Calculated result at the moment is 0
+Error occured in the second process: Process exceeded the timeout of 500 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: Process exceeded the timeout of 500 milliseconds. Calculated result at the moment is 0
+Error occured in the second process: Process exceeded the timeout of 500 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Not enough arguments!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 29
+
+Error occured in the second process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Not enough arguments!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 29
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Not enough arguments!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 29
+
+Error occured in the second process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Not enough arguments!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 29
+
+Error occured in the first process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is 25
+Error occured in the second process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is -0,9589242746631385

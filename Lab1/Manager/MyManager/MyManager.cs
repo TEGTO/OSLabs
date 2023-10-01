@@ -1,5 +1,4 @@
 ﻿using ClassLibrary.Function;
-using Lab1.Function;
 using Lab1.MyIO;
 using System.Diagnostics;
 
@@ -7,6 +6,7 @@ namespace Lab1.Manager
 {
     class MyManager
     {
+        private const float WAIT_TIME = 0;
         private string typeFunctionA;
         private string typeFunctionB;
         private string processName;
@@ -27,39 +27,80 @@ namespace Lab1.Manager
             this.functionsAssemblyName = functionsAssemblyName;
         }
         public void SetX(int x) => this.x = x;
-        public double GetComputedResult()
+        public async Task GetComputedResult()
         {
-            CalculateFunProcess(typeFunctionA, x, "resultFirst.txt", functionsAssemblyName);
-            CalculateFunProcess(typeFunctionB, x, "resultSecond.txt", functionsAssemblyName);
-            return 0;
-        }
-        private void CalculateFunProcess(string funType, int x, string resultPath, string functionsAssemblyName)
-        {
+            double resultFirst = double.NaN, resultSecond = double.NaN;
             try
             {
-                var proc = new Process
+                resultFirst = await CalculateFunProcessAsync(typeFunctionA, x, functionsAssemblyName);
+                IORedirector.PrintLineStandartOut(resultFirst.ToString());
+
+            }
+            catch (Exception ex)
+            {
+                IORedirector.PrintError("Error occured in the first process: " + ex.Message, append: true);
+            }
+            try
+            {
+                resultSecond = await CalculateFunProcessAsync(typeFunctionB, x, functionsAssemblyName);
+                IORedirector.PrintLineStandartOut(resultSecond.ToString());
+            }
+            catch (Exception ex)
+            {
+                IORedirector.PrintError("Error occured in the second process: " + ex.Message, append: true);
+            }
+            IORedirector.PrintLineStandartOut("Result: " + (resultFirst + resultSecond).ToString());
+            IORedirector.Print((resultFirst + resultSecond).ToString(), "result.txt");
+        }
+        private async Task<double> CalculateFunProcessAsync(string funType, int x, string functionsAssemblyName)
+        {
+            double result = double.NaN;
+            var tcs = new TaskCompletionSource<double>();
+            var timeout = TimeSpan.FromMilliseconds(WAIT_TIME); // desired timeout value
+            using (var proc = new Process())
+            {
+                proc.StartInfo = new ProcessStartInfo
                 {
-                    StartInfo = new ProcessStartInfo
+                    FileName = processName,
+                    UseShellExecute = false,
+                    Arguments = $"{funType} {x} {functionsAssemblyName}",
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true
+                };
+
+                proc.EnableRaisingEvents = true;
+                proc.Exited += (sender, args) =>
+                {
+                    if (proc.ExitCode != 0)
                     {
-                        FileName = processName,
-                        UseShellExecute = false,
-                        Arguments = $"{funType} {x} {resultPath} {functionsAssemblyName}",
-                        //RedirectStandardOutput = true,
-                        CreateNoWindow = true
+                        var errorMessage = proc.StandardError.ReadToEnd();
+                        tcs.TrySetException(new InvalidOperationException("The process did not exit correctly. " +
+                            "The corresponding error message was: " + errorMessage));
+                    }
+                    else
+                    {
+                        string line = proc.StandardOutput.ReadLine();
+                        result = Convert.ToDouble(line);
+                        tcs.TrySetResult(result);
                     }
                 };
-                using (proc)
+                proc.Start();
+                // This is the timeout mechanism
+                if (await Task.WhenAny(tcs.Task, Task.Delay(timeout)) == tcs.Task)
                 {
-                    proc.Start();
-                    //while (!proc.StandardOutput.EndOfStream)
-                    //{
-                    //    string line = proc.StandardOutput.ReadLine();
-                    //}
+                    // Process completed. Return the result or throw any exceptions
+                    return await tcs.Task;
                 }
-            }
-            catch (Exception e)
-            {
-                IORedirector.PrintError(e.Message);
+                else
+                {
+                    // Timeout happened. Kill the process and throw an exception.
+                    string line = proc.StandardOutput.ReadLine();
+                    result = Convert.ToDouble(line);
+                    tcs.TrySetResult(result);
+                    proc.Kill();
+                    throw new TimeoutException($"Process exceeded the timeout of {timeout.TotalMilliseconds} milliseconds. Calculated result at the moment is {result}");
+                }
             }
         }
     }

@@ -34,7 +34,7 @@ namespace Lab1.MyIO
             logger.LogError($"Error message: {s}");
             Print(s, pathName, append);
         }
-        public static void PrintLineConsole(string s)
+        public static void PrintLineStandartOut(string s)
         {
             try
             {
@@ -80,7 +80,7 @@ namespace Lab1.MyIO
             } while (!string.IsNullOrEmpty(line));
             return linesList;
         }
-        public static string ReadLineConsole()
+        public static string ReadLineStandartIn()
         {
             try
             {

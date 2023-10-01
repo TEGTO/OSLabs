@@ -6,18 +6,18 @@ namespace Lab1
 {
     class Program
     {
-        private static void Main()
+        private static async Task Main()
         {
-            IORedirector.PrintLineConsole("Enter x: ");
-            if (int.TryParse(IORedirector.ReadLineConsole(), out int x))
+            IORedirector.PrintLineStandartOut("Enter x: ");
+            if (int.TryParse(IORedirector.ReadLineStandartIn(), out int x))
             {
                 FunctionA functionA = new FunctionA();
                 FunctionB functionB = new FunctionB();
                 MyManager myManager = new MyManager(functionA, functionB, x, "D:\\Studies\\Course_3\\OS\\Labs\\Lab1\\FunctionApp\\bin\\Debug\\net7.0\\FunctionApp.exe", "ClassLibrary");
-                myManager.GetComputedResult();
+                await myManager.GetComputedResult();
             }
             else
-                Console.WriteLine("x is not int!!");
+                IORedirector.PrintError("x is not int!!", append: true);
         }
     }
 }

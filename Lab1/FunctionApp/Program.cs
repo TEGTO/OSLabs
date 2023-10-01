@@ -5,17 +5,28 @@ class Program
 {
     private static void Main(string[] args)
     {
-        if (args.Length < 3)
-            IORedirector.PrintError("Not enough arguments!");
-        else
+        try
         {
-            string funType = args[0];
-            string x = args[1];
-            string resultPath = args[2];
-            Type type = Type.GetType(args.Length >= 4 ? $"{funType}, {args[3]}" : funType);
-            object convertedFun = Activator.CreateInstance(type);
-            FunctionBase fun = (FunctionBase)convertedFun;
-            IORedirector.Print(fun.MakeCalculations(int.Parse(x)).ToString(), resultPath);
+            if (args.Length < 2)
+            {
+                Environment.ExitCode = -1;
+                throw new Exception("Not enough arguments!");
+            }
+            //IORedirector.PrintError("Not enough arguments!", append: true);
+            else
+            {
+                string funType = args[0];
+                string x = args[1];
+                Type type = Type.GetType(args.Length >= 3 ? $"{funType}, {args[2]}" : funType);
+                object convertedFun = Activator.CreateInstance(type);
+                FunctionBase fun = (FunctionBase)convertedFun;
+                IORedirector.PrintLineStandartOut(fun.MakeCalculations(int.Parse(x)).ToString());
+            }
+        }
+        catch (Exception ex)
+        {
+            Environment.ExitCode = -1;
+            throw ex;
         }
     }
 }
