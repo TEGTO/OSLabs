@@ -2,17 +2,21 @@
 using ClassLibrary.Process;
 using Lab1.MyIO;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace Lab1.Manager
 {
+
     class MyManager
     {
-        private const float WAIT_TIME = 2000;
+        private const float WAIT_TIME = 3500;
         private string typeFunctionA;
         private string typeFunctionB;
         private string processName;
         private string functionsAssemblyName;
+        private bool isSuccess = true;
         private int x;
+        private ProcessReport resultIfError = null;
         public MyManager(FunctionBase functionA, FunctionBase functionB, int x, string processName, string functionsAssemblyName = "")
         {
             this.typeFunctionA = functionA.GetType().ToString();
@@ -30,74 +34,100 @@ namespace Lab1.Manager
         public void SetX(int x) => this.x = x;
         public async Task GetComputedResult()
         {
-            double resultFirst = double.NaN, resultSecond = double.NaN, computingResult = double.NaN;
-            string amountOfSoftErrorsFirst = "0", amountOfSoftErrorsSecond = "0";
-            bool isSuccess = true;
-            string txt;
-            if (!CheckIfMemoized(x, "result.txt"))
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+            ProcessReport resultFirst = null, resultSecond = null;
+            double finalResult = double.NaN;
+            isSuccess = true;
+            string txt, nameFirst = "Fun1", nameSecond = "Fun2";
+            if (!CheckIfMemoized(nameFirst, nameSecond, x, "result.txt"))
             {
-                try
-                {
-                    resultFirst = await CalculateFunProcessAsync(typeFunctionA, x, "softErrors1.txt", functionsAssemblyName: functionsAssemblyName);
-                    amountOfSoftErrorsFirst = IORedirector.ReadLine("softErrors1.txt");
-                    txt = $"Fun1 result: {resultFirst}. Amount of soft errors occured: {amountOfSoftErrorsFirst}";
-                    IORedirector.PrintLineStandartOut(txt);
-                }
-                catch (Exception ex)
-                {
-                    // IORedirector.PrintLineStandartOut("Error occured in the first process: " + ex.Message);
-                    IORedirector.PrintError("Error occured in the first process: " + ex.Message, append: true);
-                    isSuccess = false;
-                }
+                resultFirst = await FunCompute(nameFirst, typeFunctionA, x, functionsAssemblyName: functionsAssemblyName);
+                // if (isSuccess)
+                resultSecond = await FunCompute(nameSecond, typeFunctionB, x, functionsAssemblyName: functionsAssemblyName);
                 if (isSuccess)
                 {
-                    try
-                    {
-                        resultSecond = await CalculateFunProcessAsync(typeFunctionB, x, "softErrors2.txt", functionsAssemblyName: functionsAssemblyName);
-                        amountOfSoftErrorsSecond = IORedirector.ReadLine("softErrors2.txt");
-                        txt = $"Fun2 result: {resultSecond}. Amount of soft errors occured: {amountOfSoftErrorsSecond}";
-                        IORedirector.PrintLineStandartOut(txt);
-                    }
-                    catch (Exception ex)
-                    {
-                        // IORedirector.PrintLineStandartOut("Error occured in the first process: " + ex.Message);
-                        IORedirector.PrintError("Error occured in the second process: " + ex.Message, append: true);
-                        isSuccess = false;
-                    }
-                }
-                if (isSuccess)
-                {
-                    computingResult = resultFirst + resultSecond;
-                    IORedirector.PrintLineStandartOut("Result of Fun1 + Fun2: " + computingResult.ToString());
+                    finalResult = resultFirst.Result + resultSecond.Result;
+                    IORedirector.PrintLineStandartOut($"Result of {nameFirst} + {nameSecond}: " + finalResult.ToString());
                 }
                 else
-                    IORedirector.PrintLineStandartOut("Error occured in one of the functions, result of Fun1 + Fun2: " + computingResult);
-                IORedirector.Print($"{x} {computingResult} {amountOfSoftErrorsFirst} {amountOfSoftErrorsSecond}", "result.txt", append: true, false);
+                    IORedirector.PrintLineStandartOut($"Critical error occured in one of the functions, result of {nameFirst} + {nameSecond} can't be caulculated");
+                IORedirector.Print($"{x}◙{isSuccess}◙{finalResult}◙{ProcessReport.ProcessReportSerialize(resultFirst)}◙{ProcessReport.ProcessReportSerialize(resultSecond)}", "result.txt", append: true, false);
             }
         }
-        private bool CheckIfMemoized(int x, string resultPathName)
+        private async Task<ProcessReport> FunCompute(string name, string funType, int x, string functionsAssemblyName)
+        {
+            ProcessReport result = null;
+            resultIfError = null;
+            string txt;
+            try
+            {
+                result = await CalculateFunProcessAsync(funType, x, functionsAssemblyName: functionsAssemblyName);
+                txt = $"\n{name} result: {result}";
+                IORedirector.PrintLineStandartOut(txt);
+            }
+            catch (TimeoutException ex)
+            {
+                IORedirector.PrintError($"Timeout Error occured in the {name}: " + ex.Message, append: true);
+                if (resultIfError != null)
+                {
+                    txt = $"{name} result at the moment: {resultIfError}";
+                    IORedirector.PrintLineStandartOut(txt);
+                    result = resultIfError;
+                }
+            }
+            catch (Exception ex)
+            {
+                // IORedirector.PrintLineStandartOut("Error occured in the first process: " + ex.Message);
+                IORedirector.PrintError($"Error occured in the {name}: " + ex.Message, append: true);
+                isSuccess = false;
+            }
+            return result;
+        }
+        private bool CheckIfMemoized(string nameFirst, string nameSecond, int x, string resultPathName)
         {
             double memoizedResult = double.NaN;
+            ProcessReport resultFirst = null, resultSecond = null;
+            bool isSuccess = true;
             List<string> results = IORedirector.ReadLines(pathName: resultPathName, printErrorIfFileNotFound: false);
             if (results?.Count <= 0)
                 return false;
             string[] memoizedStringRes;
-            memoizedStringRes = results.Find(line => line.Split(" ")[0].Equals(x.ToString()))?.Split(" ");
+            memoizedStringRes = results.Find(line => line.Split("◙")[0].Equals(x.ToString()))?.Split("◙");
             if (memoizedStringRes != null)
             {
-                double.TryParse(memoizedStringRes[1].ToString(), out memoizedResult);
-                IORedirector.PrintLineStandartOut($"Fun1 amount of soft errors occured: {memoizedStringRes[2]}");
-                IORedirector.PrintLineStandartOut($"Fun2 amount of soft errors occured: {memoizedStringRes[3]}");
-                IORedirector.PrintLineStandartOut("Result of Fun1 + Fun2: " + memoizedResult.ToString());
+                if (memoizedStringRes.Length <= 3 || !double.TryParse(memoizedStringRes[2], out memoizedResult))
+                    memoizedResult = double.NaN;
+                else double.TryParse(memoizedStringRes[2], out memoizedResult);
+                try
+                {
+                    bool.TryParse(memoizedStringRes[1], out isSuccess);
+                    resultFirst = ProcessReport.ProcessReportDeserialize(memoizedStringRes[3]);
+                    resultSecond = ProcessReport.ProcessReportDeserialize(memoizedStringRes[4]);
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    string txt = string.Empty;
+                    txt += $"\n{nameFirst} result: ";
+                    txt += resultFirst != null ? resultFirst + "\n" : "undefined\n";
+                    txt += $"{nameSecond} result: ";
+                    txt += resultSecond != null ? resultSecond + "\n" : "undefined\n";
+                    txt += isSuccess ? "Result of {nameFirst} + {nameSecond}: " + memoizedResult.ToString()
+                        : $"Critical error occured in one of the functions, result of {nameFirst} + {nameSecond} can't be caulculated";
+                    IORedirector.PrintLineStandartOut(txt);
+                }
                 return true;
             }
             return false;
         }
-        private async Task<double> CalculateFunProcessAsync(string funType, int x, string softErrorsFile, string functionsAssemblyName)
+        private async Task<ProcessReport> CalculateFunProcessAsync(string funType, int x, string functionsAssemblyName)
         {
-            double result = double.NaN;
-            string lastLine = string.Empty;
-            var tcs = new TaskCompletionSource<double>();
+            string line, lastLine = null;
+            string consoleReadText = string.Empty;
+            var tcs = new TaskCompletionSource<ProcessReport>();
             var timeout = TimeSpan.FromMilliseconds(WAIT_TIME); // desired timeout value
             using (var proc = new Process())
             {
@@ -105,7 +135,7 @@ namespace Lab1.Manager
                 {
                     FileName = processName,
                     UseShellExecute = false,
-                    Arguments = $"{funType} {x} {softErrorsFile} {functionsAssemblyName}",
+                    Arguments = $"{funType} {x} {functionsAssemblyName}",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     CreateNoWindow = true
@@ -113,39 +143,61 @@ namespace Lab1.Manager
                 proc.EnableRaisingEvents = true;
                 proc.Exited += (sender, args) =>
                 {
-                    if (proc.ExitCode != (int)ProcessStatus.COMPUTING_SUCCESS)
+                    if (proc.ExitCode == (int)ProcessStatus.COMPUTING_SUCCESS || proc.ExitCode == (int)ProcessStatus.COMPUTING_SOFT_ERROR)
                     {
-                        var errorMessage = proc.StandardError.ReadToEnd();
-                        tcs.TrySetException(new InvalidOperationException("The process did not exit correctly. " +
-                            "The corresponding error message was: " + errorMessage));
+                        if (proc.StandardOutput.Peek() != -1)
+                            consoleReadText = proc.StandardOutput.ReadToEnd();
+                        tcs.TrySetResult(ReadLastLine(consoleReadText));
                     }
                     else
                     {
-                        while (!proc.StandardOutput.EndOfStream)
-                            lastLine = proc.StandardOutput.ReadLine();
-                        double.TryParse(lastLine, out result);
-                        tcs.TrySetResult(result);
+                        var errorMessage = proc.StandardError.ReadToEnd();
+                        if (proc.StandardOutput.Peek() != -1)
+                            consoleReadText = proc.StandardOutput.ReadToEnd();
+                        resultIfError = ReadLastLine(consoleReadText);
+                        tcs.TrySetException(new InvalidOperationException("The process did not exit correctly. " +
+                            "The corresponding error message was: " + errorMessage));
                     }
                 };
                 proc.Start();
                 // This is the timeout mechanism
-                if (await Task.WhenAny(tcs.Task, Task.Delay(timeout)) == tcs.Task)
-                {
-                    // Process completed. Return the result or throw any exceptions
-                    return await tcs.Task;
-                }
-                else
+                if (await Task.WhenAny(tcs.Task, Task.Delay(timeout)) != tcs.Task)
                 {
                     // Timeout happened. Kill the process and throw an exception.
-                    //string line = proc.StandardOutput.ReadLine();
                     proc.Kill();
-                    while (!proc.StandardOutput.EndOfStream)
-                        lastLine = proc.StandardOutput.ReadLine();
-                    double.TryParse(lastLine, out result);
-                    tcs.TrySetResult(result);
-                    throw new TimeoutException($"Process exceeded the timeout of {timeout.TotalMilliseconds} milliseconds. Calculated result at the moment is {result}");
+                    tcs.TrySetException(new TimeoutException($"Process exceeded the timeout of {timeout.TotalMilliseconds} milliseconds."));
+                    if (proc.StandardOutput.Peek() != -1)
+                        consoleReadText = proc.StandardOutput.ReadToEnd();
+                    resultIfError = ReadLastLine(consoleReadText);
+                }
+                return await tcs.Task;
+            }
+        }
+        private ProcessReport ReadLastLine(string read)
+        {
+            ProcessReport processReport = null;
+            if (!string.IsNullOrEmpty(read))
+            {
+                string[] arr = read.Split("\n");
+                string lastLine = null;
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    if (!string.IsNullOrEmpty(arr[i]))
+                        lastLine = arr[i];
+                }
+                if (!string.IsNullOrEmpty(lastLine))
+                {
+                    try
+                    {
+                        processReport = ProcessReport.ProcessReportDeserialize(lastLine);
+                    }
+                    catch (Exception)
+                    {
+                        processReport = null;
+                    }
                 }
             }
+            return processReport;
         }
     }
 }

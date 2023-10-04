@@ -1,5 +1,6 @@
 ﻿using ClassLibrary.Function;
 using ClassLibrary.Process;
+using Lab1.MyIO;
 
 class Program
 {
@@ -7,9 +8,9 @@ class Program
     private static void Main(string[] args)
     {
         //FunctionA f = new FunctionA();
-        //args = new string[4] { f.GetType().ToString(), "5", "softErrors1.txt", "ClassLibrary" };
+        //args = new string[3] { f.GetType().ToString(), "5","ClassLibrary" };
         double calcResult = double.NaN;
-        if (args.Length < 3)
+        if (args.Length < 2)
         {
             Environment.ExitCode = (int)ProcessStatus.COMPUTING_HARD_ERROR;
             throw new Exception("Not enough arguments!");
@@ -17,9 +18,10 @@ class Program
         //IORedirector.PrintError("Not enough arguments!", append: true);
         else
         {
-            string funType = args.Length >= 4 ? $"{args[0]}, {args[3]}" : args[0];
-            string x = args[1], reportPath = args[2];
+            string funType = args.Length >= 3 ? $"{args[0]}, {args[2]}" : args[0];
+            string x = args[1];
             ProcessReport processReport = new ProcessReport();
+            processReport.FunType = funType;
             if (int.TryParse(x, out int intX))
             {
                 int amountOfSoftErrors = 0;
@@ -31,6 +33,7 @@ class Program
                         isCorrectCalc = true;
                         calcResult = FunCalculate(funType, intX);
                         processReport.Result = calcResult;
+                        IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                     }
                     catch (InvalidOperationException)
                     {
@@ -40,34 +43,36 @@ class Program
                         if (amountOfSoftErrors > MAX_AMOUT_OF_SOFT_ERRORS)
                         {
                             processReport.IsOperationInterrupted = true;
-                            processReport.Save(reportPath);
+                            IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                             Environment.ExitCode = (int)ProcessStatus.COMPUTING_SOFT_ERROR;
                             throw new Exception($"Too many soft errors: {amountOfSoftErrors}! Calculations not possible!");
                         }
+                        IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                     }
                     catch (Exception ex)
                     {
                         processReport.IsOperationInterrupted = true;
                         processReport.AmountOfHardErrors++;
-                        processReport.Save(reportPath);
+                        IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                         Environment.ExitCode = (int)ProcessStatus.COMPUTING_HARD_ERROR;
                         throw ex;
                     }
                 }
+                IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                 if (double.IsNaN(calcResult))
                 {
                     processReport.Result = double.NaN;
-                    processReport.Save(reportPath);
+                    IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                     Environment.ExitCode = (int)ProcessStatus.COMPUTING_UNDEFINED;
                     throw new Exception($"Undefined result! Amount of soft errors: {amountOfSoftErrors}");
                 }
                 Environment.ExitCode = (int)ProcessStatus.COMPUTING_SUCCESS;
-                processReport.Save(reportPath);
+                IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
             }
             else
             {
                 processReport.Result = double.NaN;
-                processReport.Save(reportPath);
+                IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                 Environment.ExitCode = (int)ProcessStatus.COMPUTING_UNDEFINED;
                 throw new Exception("Can not parse x to int!");
             }

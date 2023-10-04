@@ -1,1 +1,3 @@
-5 0 {"Result":25.0,"AmountOfSoftErrors":1,"AmountOfHardErrors":0,"IsOperationInterrupted":false} {"Result":-0.9589242746631385,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+10◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.5440211108893698,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+5◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9589242746631385,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+75455◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.22568496158377974,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
