@@ -32,3 +32,4 @@ D:\Studies\Course_3\OS\Labs\Lab1\Manager\obj\Debug\net7.0\refint\Manager.dll
 D:\Studies\Course_3\OS\Labs\Lab1\Manager\obj\Debug\net7.0\Manager.pdb
 D:\Studies\Course_3\OS\Labs\Lab1\Manager\obj\Debug\net7.0\Manager.genruntimeconfig.cache
 D:\Studies\Course_3\OS\Labs\Lab1\Manager\obj\Debug\net7.0\ref\Manager.dll
+D:\Studies\Course_3\OS\Labs\Lab1\Manager\bin\Debug\net7.0\Newtonsoft.Json.dll

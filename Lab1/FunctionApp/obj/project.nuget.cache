@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vwMynkRLErbk0I61ji2fsDyEc3IeEXowvMPBS3CvjD/hHrNvFvAk4/MIlH7BHwhliDgUkzK3VJxtmuBZhlA46Q==",
+  "dgSpecHash": "tNCwMk4xnftr/EVQ579nJYIN1/Ie8wU5gLuH0ZW+QF8qPi1aNeMVIsZLzQTLE8ETEgkw2XczP9XB251xX2aqMg==",
   "success": true,
   "projectFilePath": "D:\\Studies\\Course_3\\OS\\Labs\\Lab1\\FunctionApp\\FunctionApp.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "C:\\Users\\pshon\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\pshon\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\pshon\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\pshon\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\pshon\\.nuget\\packages\\nlog\\5.2.4\\nlog.5.2.4.nupkg.sha512",
     "C:\\Users\\pshon\\.nuget\\packages\\nlog.extensions.logging\\5.3.4\\nlog.extensions.logging.5.3.4.nupkg.sha512",
     "C:\\Users\\pshon\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",

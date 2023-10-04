@@ -16,3 +16,75 @@ Error occured in the second process: The process did not exit correctly. The cor
 
 Error occured in the first process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is 25
 Error occured in the second process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is -0,9589242746631385
+Error occured in the first process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is 25
+Error occured in the second process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is -0,9589242746631385
+Error occured in the first process: Process exceeded the timeout of 500 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Too many soft errors: 4! Calculations not possible!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 39
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Too many soft errors: 4! Calculations not possible!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 39
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Too many soft errors: 4! Calculations not possible!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 39
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 55
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 55
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 54
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 54
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 54
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Too many soft errors: 4! Calculations not possible!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 41
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 54
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 0
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 54
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Too many soft errors: 4! Calculations not possible!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 41
+
+Error occured in the first process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is 25
+Error occured in the first process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is 25
+Error occured in the first process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is не число
+Error occured in the first process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is не число
+Error occured in the first process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is не число
+Error occured in the first process: Process exceeded the timeout of 1000 milliseconds. Calculated result at the moment is не число
+Error occured in the first process: The input string '' was not in a correct format.
+Error occured in the first process: The input string '' was not in a correct format.
+Error occured in the first process: Process exceeded the timeout of 10 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: Process exceeded the timeout of 10 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: Process exceeded the timeout of 10 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: Process exceeded the timeout of 10 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: Process exceeded the timeout of 1000 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: Process exceeded the timeout of 1000 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: Process exceeded the timeout of 0 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: Process exceeded the timeout of 100 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: Process exceeded the timeout of 1000 milliseconds. Calculated result at the moment is 25
+Error occured in the first process: Process exceeded the timeout of 1000 milliseconds. Calculated result at the moment is 0
+Error occured in the first process: Process exceeded the timeout of 2000 milliseconds. Calculated result at the moment is 25
+Error occured in the first process: Process exceeded the timeout of 1000 milliseconds. Calculated result at the moment is 25
+Error occured in the first process: Process exceeded the timeout of 1000 milliseconds. Calculated result at the moment is 25
+Error occured in the first process: Process exceeded the timeout of 2000 milliseconds. Calculated result at the moment is 25
+Error occured in the first process: Process exceeded the timeout of 2000 milliseconds. Calculated result at the moment is 3
+Error occured in the first process: Process exceeded the timeout of 2000 milliseconds. Calculated result at the moment is 3
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Too many soft errors: 4! Calculations not possible!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 42
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Too many soft errors: 4! Calculations not possible!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 42
+
+Error occured in the first process: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Too many soft errors: 4! Calculations not possible!
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 42
+

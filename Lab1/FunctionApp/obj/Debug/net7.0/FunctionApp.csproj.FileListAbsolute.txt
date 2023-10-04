@@ -32,3 +32,4 @@ D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\obj\Debug\net7.0\refint\FunctionApp
 D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\obj\Debug\net7.0\FunctionApp.pdb
 D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\obj\Debug\net7.0\FunctionApp.genruntimeconfig.cache
 D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\obj\Debug\net7.0\ref\FunctionApp.dll
+D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\bin\Debug\net7.0\Newtonsoft.Json.dll

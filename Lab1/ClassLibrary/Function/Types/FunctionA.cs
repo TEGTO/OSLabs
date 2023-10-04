@@ -2,7 +2,15 @@
 {
     public class FunctionA : FunctionBase
     {
-        public override double MakeCalculations(double x) =>
-            x * x;
+        private static int amountOfSoftErrors = 0;
+        public override double MakeCalculations(double x)
+        {
+            if (amountOfSoftErrors < 1)
+            {
+                amountOfSoftErrors++;
+                throw new InvalidOperationException();
+            }
+            return x * x;
+        }
     }
 }
