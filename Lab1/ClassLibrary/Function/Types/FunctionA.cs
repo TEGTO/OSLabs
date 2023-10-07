@@ -10,7 +10,6 @@
                 amountOfSoftErrors++;
                 throw new InvalidOperationException();
             }
-            throw new Exception("HardError");
             return x * x;
         }
     }

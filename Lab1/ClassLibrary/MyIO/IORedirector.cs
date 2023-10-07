@@ -11,14 +11,12 @@ namespace Lab1.MyIO
         private static TextReader standartTextReader;
         private static TextWriter standartTextWriter;
         private static Microsoft.Extensions.Logging.ILogger<Lab1.MyIO.IORedirector> logger = LoggerFactory.Create(builder => builder.AddNLog()).CreateLogger<IORedirector>();
-        public static void Print(string s, string pathName = OUTPUT_FILE, bool append = false, bool loggerPrint = true)
+        public static void Print(string s, string pathName = OUTPUT_FILE, bool append = false)
         {
             try
             {
                 if (standartTextWriter == null)
                     standartTextWriter = Console.Out;
-                if (loggerPrint)
-                    logger.LogInformation($"Wrote {s} to the {pathName}!");
                 using (var sw = new StreamWriter(pathName, append))
                 {
                     Console.SetOut(sw);
@@ -33,7 +31,7 @@ namespace Lab1.MyIO
         public static void PrintError(string s, string pathName = ERROR_FILE, bool append = false)
         {
             logger.LogError($"Error message: {s}");
-            Print(s, pathName, append, false);
+            Print(s, pathName, append);
         }
         public static void PrintLineStandartOut(string s)
         {
@@ -49,14 +47,14 @@ namespace Lab1.MyIO
             }
         }
         public static string ReadLine(string pathName = INPUT_FILE, bool loggerPrint = true, bool isReadLastLine = false, bool printErrorIfFileNotFound = true) =>
-            Read(pathName: pathName, loggerPrint: loggerPrint, isReadLine: true, isReadLastLine: isReadLastLine, printErrorIfFileNotFound: printErrorIfFileNotFound);
+            Read(pathName: pathName, isReadLine: true, isReadLastLine: isReadLastLine, printErrorIfFileNotFound: printErrorIfFileNotFound);
         public static List<string> ReadLines(string pathName = INPUT_FILE, bool printErrorIfFileNotFound = true)
         {
             List<string> linesList;
-            linesList = Read(pathName: pathName, loggerPrint: false, isReadLine: false, printErrorIfFileNotFound: printErrorIfFileNotFound)?.Split("\n").ToList();
+            linesList = Read(pathName: pathName, isReadLine: false, printErrorIfFileNotFound: printErrorIfFileNotFound)?.Split("\n").ToList();
             return linesList;
         }
-        public static string Read(string pathName, bool loggerPrint = true, bool printErrorIfFileNotFound = true, bool isReadLine = false, bool isReadLastLine = false)
+        public static string Read(string pathName, bool printErrorIfFileNotFound = true, bool isReadLine = false, bool isReadLastLine = false)
         {
             try
             {
@@ -64,8 +62,6 @@ namespace Lab1.MyIO
                     standartTextReader = Console.In;
                 using (var sr = new StreamReader(pathName))
                 {
-                    if (loggerPrint)
-                        logger.LogInformation($"Read string line from the {pathName}!");
                     Console.SetIn(sr);
                     string currentLine;
                     string lastLine = string.Empty;

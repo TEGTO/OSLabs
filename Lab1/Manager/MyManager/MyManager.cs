@@ -9,12 +9,15 @@ namespace Lab1.Manager
 
     class MyManager
     {
-        private const float WAIT_TIME = 3500;
+        private const float WAIT_TIME = 5000000;
+        private const string SPLIT_SYMBOL = "◙";
+        public Action CancelEvent;
+        public Action ShowFunInfoEvent;
         private string typeFunctionA;
         private string typeFunctionB;
         private string processName;
         private string functionsAssemblyName;
-        private bool isSuccess = true;
+        private bool isCanCalculateResult = true;
         private int x;
         private ProcessReport resultIfError = null;
         public MyManager(FunctionBase functionA, FunctionBase functionB, int x, string processName, string functionsAssemblyName = "")
@@ -32,28 +35,77 @@ namespace Lab1.Manager
             this.functionsAssemblyName = functionsAssemblyName;
         }
         public void SetX(int x) => this.x = x;
-        public async Task GetComputedResult()
+        public async Task<string> GetComputedResult()
         {
+            CancelEvent = null;
+            ShowFunInfoEvent = null;
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
             ProcessReport resultFirst = null, resultSecond = null;
             double finalResult = double.NaN;
-            isSuccess = true;
-            string txt, nameFirst = "Fun1", nameSecond = "Fun2";
-            if (!CheckIfMemoized(nameFirst, nameSecond, x, "result.txt"))
+            isCanCalculateResult = true;
+            string nameFirst = "Fun1", nameSecond = "Fun2", txt = CheckIfMemoized(nameFirst, nameSecond, x, "result.txt");
+            if (string.IsNullOrEmpty(txt))
             {
-                resultFirst = await FunCompute(nameFirst, typeFunctionA, x, functionsAssemblyName: functionsAssemblyName);
+                var taskFirst = FunCompute(nameFirst, typeFunctionA, x, functionsAssemblyName: functionsAssemblyName);
                 // if (isSuccess)
-                resultSecond = await FunCompute(nameSecond, typeFunctionB, x, functionsAssemblyName: functionsAssemblyName);
-                if (isSuccess)
+                var taskSecond = FunCompute(nameSecond, typeFunctionB, x, functionsAssemblyName: functionsAssemblyName);
+                // Await both tasks to complete
+                resultFirst = await taskFirst;
+                resultSecond = await taskSecond;
+                if (isCanCalculateResult)
                 {
                     finalResult = resultFirst.Result + resultSecond.Result;
-                    IORedirector.PrintLineStandartOut($"Result of {nameFirst} + {nameSecond}: " + finalResult.ToString());
+                    txt = $"Result of {nameFirst} + {nameSecond}: " + finalResult.ToString();
                 }
                 else
-                    IORedirector.PrintLineStandartOut($"Critical error occured in one of the functions, result of {nameFirst} + {nameSecond} can't be caulculated");
-                IORedirector.Print($"{x}◙{isSuccess}◙{finalResult}◙{ProcessReport.ProcessReportSerialize(resultFirst)}◙{ProcessReport.ProcessReportSerialize(resultSecond)}", "result.txt", append: true, false);
+                    txt = $"Result of {nameFirst} + {nameSecond} can't be caulculated";
+                IORedirector.Print($"{x}{SPLIT_SYMBOL}" +
+                    $"{isCanCalculateResult}{SPLIT_SYMBOL}" +
+                    $"{finalResult}{SPLIT_SYMBOL}" +
+                    $"{ProcessReport.ProcessReportSerialize(resultFirst)}{SPLIT_SYMBOL}" +
+                    $"{ProcessReport.ProcessReportSerialize(resultSecond)}", "result.txt", append: true);
             }
+            return txt;
+        }
+        private string CheckIfMemoized(string nameFirst, string nameSecond, int x, string resultPathName)
+        {
+            double memoizedResult = double.NaN;
+            ProcessReport resultFirst = null, resultSecond = null;
+            bool isSuccess = true;
+            string txt = string.Empty;
+            List<string> results = IORedirector.ReadLines(pathName: resultPathName, printErrorIfFileNotFound: false);
+            if (results?.Count <= 0)
+                return txt;
+            string[] memoizedStringRes;
+            memoizedStringRes = results.Find(line => line.Split(SPLIT_SYMBOL)[0].Equals(x.ToString()))?.Split(SPLIT_SYMBOL);
+            if (memoizedStringRes != null)
+            {
+                if (memoizedStringRes.Length <= 3 || !double.TryParse(memoizedStringRes[2], out memoizedResult))
+                    memoizedResult = double.NaN;
+                else double.TryParse(memoizedStringRes[2], out memoizedResult);
+                try
+                {
+                    bool.TryParse(memoizedStringRes[1], out isSuccess);
+                    resultFirst = ProcessReport.ProcessReportDeserialize(memoizedStringRes[3]);
+                    resultSecond = ProcessReport.ProcessReportDeserialize(memoizedStringRes[4]);
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    txt = string.Empty;
+                    txt += $"\n{nameFirst} result: ";
+                    txt += resultFirst != null ? resultFirst + "\n" : "undefined\n";
+                    txt += $"{nameSecond} result: ";
+                    txt += resultSecond != null ? resultSecond + "\n" : "undefined\n";
+                    txt += isSuccess ? "Result of {nameFirst} + {nameSecond}: " + memoizedResult.ToString()
+                        : $"Result of {nameFirst} + {nameSecond} can't be caulculated";
+                }
+                return txt;
+            }
+            return txt;
         }
         private async Task<ProcessReport> FunCompute(string name, string funType, int x, string functionsAssemblyName)
         {
@@ -75,103 +127,16 @@ namespace Lab1.Manager
                     IORedirector.PrintLineStandartOut(txt);
                     result = resultIfError;
                 }
+                else
+                    isCanCalculateResult = false;
             }
             catch (Exception ex)
             {
                 // IORedirector.PrintLineStandartOut("Error occured in the first process: " + ex.Message);
                 IORedirector.PrintError($"Error occured in the {name}: " + ex.Message, append: true);
-                isSuccess = false;
+                isCanCalculateResult = false;
             }
             return result;
-        }
-        private bool CheckIfMemoized(string nameFirst, string nameSecond, int x, string resultPathName)
-        {
-            double memoizedResult = double.NaN;
-            ProcessReport resultFirst = null, resultSecond = null;
-            bool isSuccess = true;
-            List<string> results = IORedirector.ReadLines(pathName: resultPathName, printErrorIfFileNotFound: false);
-            if (results?.Count <= 0)
-                return false;
-            string[] memoizedStringRes;
-            memoizedStringRes = results.Find(line => line.Split("◙")[0].Equals(x.ToString()))?.Split("◙");
-            if (memoizedStringRes != null)
-            {
-                if (memoizedStringRes.Length <= 3 || !double.TryParse(memoizedStringRes[2], out memoizedResult))
-                    memoizedResult = double.NaN;
-                else double.TryParse(memoizedStringRes[2], out memoizedResult);
-                try
-                {
-                    bool.TryParse(memoizedStringRes[1], out isSuccess);
-                    resultFirst = ProcessReport.ProcessReportDeserialize(memoizedStringRes[3]);
-                    resultSecond = ProcessReport.ProcessReportDeserialize(memoizedStringRes[4]);
-                }
-                catch
-                {
-                }
-                finally
-                {
-                    string txt = string.Empty;
-                    txt += $"\n{nameFirst} result: ";
-                    txt += resultFirst != null ? resultFirst + "\n" : "undefined\n";
-                    txt += $"{nameSecond} result: ";
-                    txt += resultSecond != null ? resultSecond + "\n" : "undefined\n";
-                    txt += isSuccess ? "Result of {nameFirst} + {nameSecond}: " + memoizedResult.ToString()
-                        : $"Critical error occured in one of the functions, result of {nameFirst} + {nameSecond} can't be caulculated";
-                    IORedirector.PrintLineStandartOut(txt);
-                }
-                return true;
-            }
-            return false;
-        }
-        private async Task<ProcessReport> CalculateFunProcessAsync(string funType, int x, string functionsAssemblyName)
-        {
-            string line, lastLine = null;
-            string consoleReadText = string.Empty;
-            var tcs = new TaskCompletionSource<ProcessReport>();
-            var timeout = TimeSpan.FromMilliseconds(WAIT_TIME); // desired timeout value
-            using (var proc = new Process())
-            {
-                proc.StartInfo = new ProcessStartInfo
-                {
-                    FileName = processName,
-                    UseShellExecute = false,
-                    Arguments = $"{funType} {x} {functionsAssemblyName}",
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    CreateNoWindow = true
-                };
-                proc.EnableRaisingEvents = true;
-                proc.Exited += (sender, args) =>
-                {
-                    if (proc.ExitCode == (int)ProcessStatus.COMPUTING_SUCCESS || proc.ExitCode == (int)ProcessStatus.COMPUTING_SOFT_ERROR)
-                    {
-                        if (proc.StandardOutput.Peek() != -1)
-                            consoleReadText = proc.StandardOutput.ReadToEnd();
-                        tcs.TrySetResult(ReadLastLine(consoleReadText));
-                    }
-                    else
-                    {
-                        var errorMessage = proc.StandardError.ReadToEnd();
-                        if (proc.StandardOutput.Peek() != -1)
-                            consoleReadText = proc.StandardOutput.ReadToEnd();
-                        resultIfError = ReadLastLine(consoleReadText);
-                        tcs.TrySetException(new InvalidOperationException("The process did not exit correctly. " +
-                            "The corresponding error message was: " + errorMessage));
-                    }
-                };
-                proc.Start();
-                // This is the timeout mechanism
-                if (await Task.WhenAny(tcs.Task, Task.Delay(timeout)) != tcs.Task)
-                {
-                    // Timeout happened. Kill the process and throw an exception.
-                    proc.Kill();
-                    tcs.TrySetException(new TimeoutException($"Process exceeded the timeout of {timeout.TotalMilliseconds} milliseconds."));
-                    if (proc.StandardOutput.Peek() != -1)
-                        consoleReadText = proc.StandardOutput.ReadToEnd();
-                    resultIfError = ReadLastLine(consoleReadText);
-                }
-                return await tcs.Task;
-            }
         }
         private ProcessReport ReadLastLine(string read)
         {
@@ -198,6 +163,65 @@ namespace Lab1.Manager
                 }
             }
             return processReport;
+        }
+        private async Task<ProcessReport> CalculateFunProcessAsync(string funType, int x, string functionsAssemblyName)
+        {
+            string consoleReadText = string.Empty;
+            var tcs = new TaskCompletionSource<ProcessReport>();
+            var timeout = TimeSpan.FromMilliseconds(WAIT_TIME); // desired timeout value
+            using (var proc = new Process())
+            {
+                proc.StartInfo = new ProcessStartInfo
+                {
+                    FileName = processName,
+                    UseShellExecute = false,
+                    Arguments = $"{funType} {x} {functionsAssemblyName}",
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true
+                };
+                proc.EnableRaisingEvents = true;
+                proc.Exited += (sender, args) =>
+                {
+                    if (proc.StandardOutput.Peek() != -1)
+                        consoleReadText = proc.StandardOutput.ReadToEnd();
+                    if (proc.ExitCode == (int)ProcessStatus.COMPUTING_SUCCESS || proc.ExitCode == (int)ProcessStatus.COMPUTING_SOFT_ERROR)
+                        tcs.TrySetResult(ReadLastLine(consoleReadText));
+                    else
+                    {
+                        var errorMessage = proc.StandardError.ReadToEnd();
+                        resultIfError = ReadLastLine(consoleReadText);
+                        tcs.TrySetException(new InvalidOperationException("The process did not exit correctly. " +
+                            "The corresponding error message was: " + errorMessage));
+                    }
+                };
+                proc.Start();
+                Action cancelTask = () =>
+                {
+                    proc.Kill();
+                    if (proc.StandardOutput.Peek() != -1)
+                        consoleReadText = proc.StandardOutput.ReadToEnd();
+                    resultIfError = ReadLastLine(consoleReadText);
+                };
+                Action showInfo = () =>
+                {
+                    if (proc.StandardOutput.Peek() != -1)
+                        consoleReadText = proc.StandardOutput.ReadLine();
+                    ProcessReport processReport = ReadLastLine(consoleReadText);
+                    if (processReport != null)
+                        IORedirector.PrintLineStandartOut(processReport.ToString());
+                };
+                CancelEvent += cancelTask;
+                ShowFunInfoEvent += showInfo;
+                // This is the timeout mechanism
+                if (await Task.WhenAny(tcs.Task, Task.Delay(timeout)) != tcs.Task)
+                {
+                    cancelTask?.Invoke();
+                    // Timeout happened. Kill the process and throw an exception.
+                    tcs.TrySetException(new TimeoutException($"Process exceeded the timeout of {timeout.TotalMilliseconds} milliseconds."));
+                }
+                return await tcs.Task;
+            }
         }
     }
 }

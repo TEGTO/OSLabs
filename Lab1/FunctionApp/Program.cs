@@ -15,7 +15,6 @@ class Program
             Environment.ExitCode = (int)ProcessStatus.COMPUTING_HARD_ERROR;
             throw new Exception("Not enough arguments!");
         }
-        //IORedirector.PrintError("Not enough arguments!", append: true);
         else
         {
             string funType = args.Length >= 3 ? $"{args[0]}, {args[2]}" : args[0];
@@ -58,6 +57,7 @@ class Program
                         throw ex;
                     }
                 }
+                Thread.Sleep(1000000);
                 IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                 if (double.IsNaN(calcResult))
                 {

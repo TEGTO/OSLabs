@@ -1,3 +1,27 @@
 10◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.5440211108893698,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
 5◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9589242746631385,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
 75455◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.22568496158377974,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+1◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.8414709848078965,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+2◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9092974268256817,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+100◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.5063656411097588,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+150◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.7148764296291646,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+500◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.46777180532247614,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+550◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.219484077409708,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+6500◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.04478473860112598,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+950◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9454647941364738,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+1005◙False◙NaN◙null◙null
+520◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9977952793125009,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+522◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.4755767042996153,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+123◙False◙NaN◙null◙null
+236◙False◙NaN◙null◙null
+3652◙False◙NaN◙null◙null
+120◙False◙NaN◙null◙null
+2258◙False◙NaN◙null◙null
+50◙False◙NaN◙null◙null
+2326◙False◙NaN◙null◙null
+250◙False◙NaN◙null◙null
+11515◙False◙NaN◙null◙null
+555353◙False◙NaN◙null◙null
+34343◙False◙NaN◙null◙null
+434334◙False◙NaN◙null◙null
+434343◙False◙NaN◙null◙null

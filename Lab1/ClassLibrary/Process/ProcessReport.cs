@@ -25,14 +25,14 @@ namespace ClassLibrary.Process
            JsonConvert.DeserializeObject<ProcessReport>(s);
         public static string ProcessReportSerialize(ProcessReport processReport) =>
             JsonConvert.SerializeObject(processReport);
-        public void Save(string pathName, bool append = false, bool loggerPrint = false)
+        public void Save(string pathName, bool append = false)
         {
             string json = ProcessReportSerialize(this);
-            IORedirector.Print(json, pathName, append, loggerPrint);
+            IORedirector.Print(json, pathName, append);
         }
         public static ProcessReport Load(string pathName)
         {
-            string json = IORedirector.Read(pathName: pathName, loggerPrint: false, printErrorIfFileNotFound: true, isReadLine: false);
+            string json = IORedirector.Read(pathName: pathName, printErrorIfFileNotFound: true, isReadLine: false);
             if (!string.IsNullOrEmpty(json))
                 return ProcessReportDeserialize(json);
             return null;
