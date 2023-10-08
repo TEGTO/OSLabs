@@ -14,7 +14,6 @@ namespace Lab1
             MyManager myManager = new MyManager(functionA, functionB, 0, "D:\\Studies\\Course_3\\OS\\Labs\\Lab1\\FunctionApp\\bin\\Debug\\net7.0\\FunctionApp.exe", "ClassLibrary");
             bool isLeaving = false;
             string resultTxtPeport = string.Empty;
-            CancellationTokenSource cts = new CancellationTokenSource();
             while (!isLeaving)
             {
                 IORedirector.PrintLineStandartOut("\nChoose option: ");
@@ -37,10 +36,11 @@ namespace Lab1
                             });
                             resultTxtPeport = await myManager.GetComputedResult();
                             isManagerFinished = true;
+                            await monitorKeyPress;
+                            IORedirector.PrintLineStandartOut(resultTxtPeport);
                         }
                         else
                             IORedirector.PrintError("x is not int!!", append: true);
-                        IORedirector.PrintLineStandartOut(resultTxtPeport);
                         break;
                     case ConsoleKey.D2:
                     case ConsoleKey.NumPad2:
@@ -56,21 +56,41 @@ namespace Lab1
         {
             while (!isManagerFinished)
             {
-                if (Console.ReadKey(true).Key == ConsoleKey.F1 && !isManagerFinished)
+                if (!isManagerFinished && Console.ReadKey(true).Key == ConsoleKey.F1)
                 {
-                    IORedirector.PrintLineStandartOut($"C.Cancel operations x\nI.Show operations status");
-                    ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-                    switch (keyInfo.Key)
+                    if (!isManagerFinished)
                     {
-                        case ConsoleKey.C:
-                            myManager.CancelEvent?.Invoke();
-                            break;
-                        case ConsoleKey.I:
-                            myManager.ShowFunInfoEvent?.Invoke();
-                            break;
-                        default:
-                            IORedirector.PrintLineStandartOut("EXIT FROM PROMT MENU");
-                            break;
+                        IORedirector.BlockConsoleOutput();
+                        IORedirector.PrintStandartOutEvenIfBlocked($"C.Cancel operations x\nI.Show operations status");
+                        ConsoleKeyInfo keyInfo = Console.ReadKey(true);
+                        try
+                        {
+                            switch (keyInfo.Key)
+                            {
+                                case ConsoleKey.C:
+                                    IORedirector.ReleaseConsoleOutput();
+                                    IORedirector.PrintLineStandartOut("Processes have been killed by user!");
+                                    myManager.CancelEvent?.Invoke();
+
+                                    break;
+                                case ConsoleKey.I:
+                                    IORedirector.ReleaseConsoleOutput();
+                                    myManager.ShowFunInfoEvent?.Invoke();
+                                    break;
+                                default:
+                                    IORedirector.PrintStandartOutEvenIfBlocked("EXIT FROM PROMT MENU");
+                                    break;
+                            }
+                        }
+                        catch (InvalidOperationException)
+                        {
+                            IORedirector.PrintLineStandartOut("The process cannot be accessed because it has already completed and been disposed!");
+                        }
+                    }
+                    else
+                    {
+                        IORedirector.PrintStandartOutEvenIfBlocked("MANAGER FINISHED, PROMT MENU IS NOT ACTIVE");
+                        IORedirector.ReleaseConsoleOutput();
                     }
                 }
             }

@@ -10,7 +10,7 @@
                 amountOfSoftErrors++;
                 throw new InvalidOperationException();
             }
-            return x * x;
+            throw new Exception("ggg");
         }
     }
 }

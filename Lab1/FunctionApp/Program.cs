@@ -57,7 +57,6 @@ class Program
                         throw ex;
                     }
                 }
-                Thread.Sleep(1000000);
                 IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                 if (double.IsNaN(calcResult))
                 {

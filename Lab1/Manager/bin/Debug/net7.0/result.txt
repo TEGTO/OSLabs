@@ -1,27 +1,24 @@
-10◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.5440211108893698,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-5◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9589242746631385,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-75455◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.22568496158377974,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+125◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.6160404591886565,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+151◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.20214988141565363,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
 1◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.8414709848078965,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-2◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9092974268256817,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-100◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.5063656411097588,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-150◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.7148764296291646,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-500◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.46777180532247614,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-550◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.219484077409708,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-6500◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.04478473860112598,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-950◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9454647941364738,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-1005◙False◙NaN◙null◙null
-520◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9977952793125009,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-522◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.4755767042996153,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-123◙False◙NaN◙null◙null
-236◙False◙NaN◙null◙null
-3652◙False◙NaN◙null◙null
-120◙False◙NaN◙null◙null
-2258◙False◙NaN◙null◙null
-50◙False◙NaN◙null◙null
-2326◙False◙NaN◙null◙null
-250◙False◙NaN◙null◙null
-11515◙False◙NaN◙null◙null
-555353◙False◙NaN◙null◙null
+147◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.6090440218832924,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+256◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9992080341070627,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+12◙False◙NaN◙null◙null
+145◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.4677451620451334,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+5454◙False◙NaN◙null◙null
+545454◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9516937497575575,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+3434◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.23695426279055334,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+434◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.4441396769705497,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+4545454◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.17071067757853445,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
 34343◙False◙NaN◙null◙null
-434334◙False◙NaN◙null◙null
-434343◙False◙NaN◙null◙null
+878787◙False◙NaN◙null◙null
+545◙False◙NaN◙null◙null
+5454551◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9996846879153953,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+2323◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9784938989230919,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+4343◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9684546644488056,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+3131◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.919919693794243,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+44545454◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9437672058871825,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+5454541◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.8524674667845247,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+544554◙False◙NaN◙null◙null
+5464664◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9717262679683932,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+3344◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9747093129614647,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
