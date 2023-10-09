@@ -8,18 +8,16 @@ namespace ClassLibrary.Process
         public string FunType;
         public double Result;
         public int AmountOfSoftErrors;
-        public int AmountOfHardErrors;
-        public bool IsOperationInterrupted = false;
+        public ProcessStatus CalculationStatus;
         public ProcessReport()
         {
         }
-        public ProcessReport(string funType, double result, int amountOfSoftErrors, int amountOfHardErrors, bool isOperationInterrupted)
+        public ProcessReport(string funType, double result, int amountOfSoftErrors, ProcessStatus calculationStatus)
         {
             this.FunType = funType;
             this.Result = result;
             this.AmountOfSoftErrors = amountOfSoftErrors;
-            this.AmountOfHardErrors = amountOfHardErrors;
-            this.IsOperationInterrupted = isOperationInterrupted;
+            this.CalculationStatus = calculationStatus;
         }
         public static ProcessReport ProcessReportDeserialize(string s) =>
            JsonConvert.DeserializeObject<ProcessReport>(s);
@@ -39,7 +37,8 @@ namespace ClassLibrary.Process
         }
         public override string ToString()
         {
-            return $"Result: {Result}, AmountOfSoftErrors: {AmountOfSoftErrors}, AmountOfHardErrors: {AmountOfHardErrors}, IsOperationInterrupted: {IsOperationInterrupted}";
+            return $"Result: {Result}, AmountOfSoftErrors: {AmountOfSoftErrors}" +
+                $", Calculation Status: {CalculationStatus.ToString()}";
         }
     }
 }

@@ -1,24 +1,20 @@
-125◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.6160404591886565,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-151◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.20214988141565363,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-1◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.8414709848078965,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-147◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.6090440218832924,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-256◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9992080341070627,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-12◙False◙NaN◙null◙null
-145◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.4677451620451334,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-5454◙False◙NaN◙null◙null
-545454◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9516937497575575,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-3434◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.23695426279055334,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-434◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.4441396769705497,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-4545454◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.17071067757853445,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-34343◙False◙NaN◙null◙null
-878787◙False◙NaN◙null◙null
-545◙False◙NaN◙null◙null
-5454551◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9996846879153953,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-2323◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9784938989230919,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-4343◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9684546644488056,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-3131◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.919919693794243,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-44545454◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9437672058871825,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-5454541◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.8524674667845247,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-544554◙False◙NaN◙null◙null
-5464664◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9717262679683932,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
-3344◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9747093129614647,"AmountOfSoftErrors":0,"AmountOfHardErrors":0,"IsOperationInterrupted":false}
+15◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.6502878401571168,"AmountOfSoftErrors":0,"CalculationStatus":0}
+1536◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.23654423957088996,"AmountOfSoftErrors":0,"CalculationStatus":0}
+11◙True◙120.0000097934493◙{"FunType":"ClassLibrary.Function.Types.FunctionA, ClassLibrary","Result":121.0,"AmountOfSoftErrors":1,"CalculationStatus":0}◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9999902065507035,"AmountOfSoftErrors":0,"CalculationStatus":0}
+2569◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.7330468116717257,"AmountOfSoftErrors":0,"CalculationStatus":0}
+1478◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9928870112993258,"AmountOfSoftErrors":0,"CalculationStatus":0}
+2589◙False◙NaN◙null◙null
+1541◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.9988093497306233,"AmountOfSoftErrors":0,"CalculationStatus":0}
+1450◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9880130176696048,"AmountOfSoftErrors":0,"CalculationStatus":0}
+142◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.5877950071674065,"AmountOfSoftErrors":0,"CalculationStatus":0}
+12025◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.850364671001916,"AmountOfSoftErrors":0,"CalculationStatus":0}
+1477777◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.08996344743664303,"AmountOfSoftErrors":0,"CalculationStatus":0}
+1515511◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.40842048833789946,"AmountOfSoftErrors":0,"CalculationStatus":0}
+1511551◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9217360911130628,"AmountOfSoftErrors":0,"CalculationStatus":0}
+1◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.8414709848078965,"AmountOfSoftErrors":0,"CalculationStatus":0}
+369555◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.031375121967686465,"AmountOfSoftErrors":0,"CalculationStatus":0}
+256565◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.5250375920423888,"AmountOfSoftErrors":0,"CalculationStatus":0}
+121212◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.06929787114477683,"AmountOfSoftErrors":0,"CalculationStatus":0}
+10000◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.30561438888825215,"AmountOfSoftErrors":0,"CalculationStatus":0}
+1457◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.6434458370324442,"AmountOfSoftErrors":0,"CalculationStatus":0}
+14777◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.8683385206130968,"AmountOfSoftErrors":0,"CalculationStatus":0}

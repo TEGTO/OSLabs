@@ -59,7 +59,7 @@ namespace Lab1.Manager
                     txt = $"Result of {nameFirst} + {nameSecond}: " + finalResult.ToString();
                 }
                 else
-                    txt = $"Result of {nameFirst} + {nameSecond} can't be caulculated";
+                    txt = $"Result of {nameFirst} + {nameSecond} can't be caulculated!";
                 IORedirector.Print($"{x}{SPLIT_SYMBOL}" +
                     $"{isCanCalculateResult}{SPLIT_SYMBOL}" +
                     $"{finalResult}{SPLIT_SYMBOL}" +
@@ -100,7 +100,7 @@ namespace Lab1.Manager
                     txt += resultFirst != null ? resultFirst + "\n" : "undefined\n";
                     txt += $"{nameSecond} result: ";
                     txt += resultSecond != null ? resultSecond + "\n" : "undefined\n";
-                    txt += isSuccess ? "Result of {nameFirst} + {nameSecond}: " + memoizedResult.ToString()
+                    txt += isSuccess ? $"Result of {nameFirst} + {nameSecond}: " + memoizedResult.ToString()
                         : $"Result of {nameFirst} + {nameSecond} can't be caulculated";
                 }
                 return txt;
@@ -134,6 +134,11 @@ namespace Lab1.Manager
             {
                 // IORedirector.PrintLineStandartOut("Error occured in the first process: " + ex.Message);
                 IORedirector.PrintError($"Error occured in the {name}: " + ex.Message, append: true);
+                if (resultIfError != null)
+                {
+                    txt = $"{name} result at the moment: {resultIfError}";
+                    IORedirector.PrintLineStandartOut(txt);
+                }
                 isCanCalculateResult = false;
             }
             return result;

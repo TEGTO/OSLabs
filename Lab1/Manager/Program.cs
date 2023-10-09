@@ -1,6 +1,7 @@
 ﻿using ClassLibrary.Function.Types;
 using Lab1.Manager;
 using Lab1.MyIO;
+using System.Diagnostics;
 
 namespace Lab1
 {
@@ -14,6 +15,7 @@ namespace Lab1
             MyManager myManager = new MyManager(functionA, functionB, 0, "D:\\Studies\\Course_3\\OS\\Labs\\Lab1\\FunctionApp\\bin\\Debug\\net7.0\\FunctionApp.exe", "ClassLibrary");
             bool isLeaving = false;
             string resultTxtPeport = string.Empty;
+            Stopwatch stopwatch = new Stopwatch();
             while (!isLeaving)
             {
                 IORedirector.PrintLineStandartOut("\nChoose option: ");
@@ -26,6 +28,8 @@ namespace Lab1
                         IORedirector.PrintLineStandartOut("Enter x: ");
                         if (int.TryParse(IORedirector.ReadLineStandartIn(), out int x))
                         {
+                            stopwatch.Restart();
+                            stopwatch.Start();
                             IORedirector.PrintLineStandartOut($"F1 to call PromtMenu");
                             myManager.SetX(x);
                             isManagerFinished = false;
@@ -36,7 +40,9 @@ namespace Lab1
                             });
                             resultTxtPeport = await myManager.GetComputedResult();
                             isManagerFinished = true;
+                            stopwatch.Stop();
                             await monitorKeyPress;
+                            resultTxtPeport += " Time elapsed: " + stopwatch.Elapsed;
                             IORedirector.PrintLineStandartOut(resultTxtPeport);
                         }
                         else

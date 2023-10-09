@@ -1,207 +1,55 @@
-x is not int!!
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Timeout Error occured in the Fun1: Process exceeded the timeout of 5 milliseconds.
-Timeout Error occured in the Fun2: Process exceeded the timeout of 5 milliseconds.
-Timeout Error occured in the Fun1: Process exceeded the timeout of 5 milliseconds.
-Timeout Error occured in the Fun2: Process exceeded the timeout of 5 milliseconds.
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-x is not int!!
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-x is not int!!
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 58
+
 Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Too many soft errors: 4! Calculations not possible!
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 47
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 49
 
 Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 66
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
 Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun2: The process did not exit correctly. The corresponding error message was: 
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
-
-Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: ggg
-   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 57
+Error occured in the Fun1: The process did not exit correctly. The corresponding error message was: Unhandled exception. System.Exception: Undefined result! Amount of soft errors: 1
+   at Program.Main(String[] args) in D:\Studies\Course_3\OS\Labs\Lab1\FunctionApp\Program.cs:line 68
 

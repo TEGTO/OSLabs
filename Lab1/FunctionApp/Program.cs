@@ -10,22 +10,25 @@ class Program
         //FunctionA f = new FunctionA();
         //args = new string[3] { f.GetType().ToString(), "5","ClassLibrary" };
         double calcResult = double.NaN;
+        ProcessReport processReport = new ProcessReport();
         if (args.Length < 2)
         {
             Environment.ExitCode = (int)ProcessStatus.COMPUTING_HARD_ERROR;
+            processReport.CalculationStatus = ProcessStatus.COMPUTING_HARD_ERROR;
+            processReport.Result = double.NaN;
+            IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
             throw new Exception("Not enough arguments!");
         }
         else
         {
             string funType = args.Length >= 3 ? $"{args[0]}, {args[2]}" : args[0];
             string x = args[1];
-            ProcessReport processReport = new ProcessReport();
             processReport.FunType = funType;
             if (int.TryParse(x, out int intX))
             {
-                int amountOfSoftErrors = 0;
                 bool isCorrectCalc = false;
-                while (amountOfSoftErrors <= MAX_AMOUT_OF_SOFT_ERRORS && !isCorrectCalc)
+                processReport.CalculationStatus = ProcessStatus.COMPUTING_SUCCESS;
+                while (processReport.AmountOfSoftErrors <= MAX_AMOUT_OF_SOFT_ERRORS && !isCorrectCalc)
                 {
                     try
                     {
@@ -37,21 +40,19 @@ class Program
                     catch (InvalidOperationException)
                     {
                         isCorrectCalc = false;
-                        amountOfSoftErrors++;
                         processReport.AmountOfSoftErrors++;
-                        if (amountOfSoftErrors > MAX_AMOUT_OF_SOFT_ERRORS)
+                        if (processReport.AmountOfSoftErrors > MAX_AMOUT_OF_SOFT_ERRORS)
                         {
-                            processReport.IsOperationInterrupted = true;
+                            processReport.CalculationStatus = ProcessStatus.COMPUTING_SOFT_ERROR;
                             IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                             Environment.ExitCode = (int)ProcessStatus.COMPUTING_SOFT_ERROR;
-                            throw new Exception($"Too many soft errors: {amountOfSoftErrors}! Calculations not possible!");
+                            throw new Exception($"Too many soft errors: {processReport.AmountOfSoftErrors}! Calculations not possible!");
                         }
                         IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                     }
                     catch (Exception ex)
                     {
-                        processReport.IsOperationInterrupted = true;
-                        processReport.AmountOfHardErrors++;
+                        processReport.CalculationStatus = ProcessStatus.COMPUTING_HARD_ERROR;
                         IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                         Environment.ExitCode = (int)ProcessStatus.COMPUTING_HARD_ERROR;
                         throw ex;
@@ -61,9 +62,10 @@ class Program
                 if (double.IsNaN(calcResult))
                 {
                     processReport.Result = double.NaN;
+                    processReport.CalculationStatus = ProcessStatus.COMPUTING_UNDEFINED;
                     IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                     Environment.ExitCode = (int)ProcessStatus.COMPUTING_UNDEFINED;
-                    throw new Exception($"Undefined result! Amount of soft errors: {amountOfSoftErrors}");
+                    throw new Exception($"Undefined result! Amount of soft errors: {processReport.AmountOfSoftErrors}");
                 }
                 Environment.ExitCode = (int)ProcessStatus.COMPUTING_SUCCESS;
                 IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
@@ -71,6 +73,7 @@ class Program
             else
             {
                 processReport.Result = double.NaN;
+                processReport.CalculationStatus = ProcessStatus.COMPUTING_UNDEFINED;
                 IORedirector.PrintLineStandartOut(ProcessReport.ProcessReportSerialize(processReport));
                 Environment.ExitCode = (int)ProcessStatus.COMPUTING_UNDEFINED;
                 throw new Exception("Can not parse x to int!");

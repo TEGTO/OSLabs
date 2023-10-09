@@ -10,7 +10,7 @@
                 amountOfSoftErrors++;
                 throw new InvalidOperationException();
             }
-            throw new Exception("ggg");
+            return double.NaN;
         }
     }
 }
