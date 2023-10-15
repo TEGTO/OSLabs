@@ -5,12 +5,12 @@
         private static int amountOfSoftErrors = 0;
         public override double MakeCalculations(double x)
         {
-            if (amountOfSoftErrors < 1)
+            if (amountOfSoftErrors < 5)
             {
                 amountOfSoftErrors++;
                 throw new InvalidOperationException();
             }
-            return double.NaN;
+            return x*x;
         }
     }
 }

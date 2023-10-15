@@ -46,7 +46,7 @@ namespace Lab1
                             IORedirector.PrintLineStandartOut(resultTxtPeport);
                         }
                         else
-                            IORedirector.PrintError("x is not int!!", append: true);
+                            IORedirector.PrintError("x is not int!!");
                         break;
                     case ConsoleKey.D2:
                     case ConsoleKey.NumPad2:
@@ -85,12 +85,13 @@ namespace Lab1
                                     break;
                                 default:
                                     IORedirector.PrintStandartOutEvenIfBlocked("EXIT FROM PROMT MENU");
+                                    IORedirector.ReleaseConsoleOutput();
                                     break;
                             }
                         }
                         catch (InvalidOperationException)
                         {
-                            IORedirector.PrintLineStandartOut("The process cannot be accessed because it has already completed and been disposed!");
+                            IORedirector.PrintLineStandartOut("Some process cannot be accessed because it has already completed and been disposed!");
                         }
                     }
                     else

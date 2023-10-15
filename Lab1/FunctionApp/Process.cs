@@ -2,7 +2,7 @@
 using ClassLibrary.Process;
 using Lab1.MyIO;
 
-class Program
+class Process
 {
     const int MAX_AMOUT_OF_SOFT_ERRORS = 3;
     private static void Main(string[] args)

@@ -32,11 +32,8 @@ namespace Lab1.MyIO
                 logger.LogError($"Read error: {ex.Message}");
             }
         }
-        public static void PrintError(string s, string pathName = ERROR_FILE, bool append = false)
-        {
+        public static void PrintError(string s) =>
             logger.LogError($"Error message: {s}");
-            Print(s, pathName, append);
-        }
         public static void PrintLineStandartOut(string s)
         {
             try

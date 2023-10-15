@@ -1,5 +1,6 @@
 ﻿using Lab1.MyIO;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace ClassLibrary.Process
 {
@@ -37,7 +38,8 @@ namespace ClassLibrary.Process
         }
         public override string ToString()
         {
-            return $"Result: {Result}, AmountOfSoftErrors: {AmountOfSoftErrors}" +
+            string pattern = @"(?<=\.)[^.]+(?=,)";
+            return $"Type: {Regex.Match(FunType, pattern)}, Result: {Result}, AmountOfSoftErrors: {AmountOfSoftErrors}" +
                 $", Calculation Status: {CalculationStatus.ToString()}";
         }
     }

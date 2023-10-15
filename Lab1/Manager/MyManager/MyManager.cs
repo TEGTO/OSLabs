@@ -6,11 +6,13 @@ using System.Globalization;
 
 namespace Lab1.Manager
 {
-
     class MyManager
     {
-        private const float WAIT_TIME = 5000000;
+        private const float WAIT_TIME = 5000;
         private const string SPLIT_SYMBOL = "◙";
+        private const string RESULT_FILE_NAME = "result.txt";
+        private const string FIRST_FUN_NAME = "Fun1";
+        private const string SECOND_FUN_NAME = "Fun2";
         public Action CancelEvent;
         public Action ShowFunInfoEvent;
         private string typeFunctionA;
@@ -39,16 +41,17 @@ namespace Lab1.Manager
         {
             CancelEvent = null;
             ShowFunInfoEvent = null;
+            isCanCalculateResult = true;
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
             ProcessReport resultFirst = null, resultSecond = null;
             double finalResult = double.NaN;
-            isCanCalculateResult = true;
-            string nameFirst = "Fun1", nameSecond = "Fun2", txt = CheckIfMemoized(nameFirst, nameSecond, x, "result.txt");
+            string nameFirst = FIRST_FUN_NAME, nameSecond = SECOND_FUN_NAME, txt = CheckIfMemoized(nameFirst, nameSecond, x, RESULT_FILE_NAME);
+            bool isCanceled = false;
+            CancelEvent += () => { isCanceled = true; };
             if (string.IsNullOrEmpty(txt))
             {
                 var taskFirst = FunCompute(nameFirst, typeFunctionA, x, functionsAssemblyName: functionsAssemblyName);
-                // if (isSuccess)
                 var taskSecond = FunCompute(nameSecond, typeFunctionB, x, functionsAssemblyName: functionsAssemblyName);
                 // Await both tasks to complete
                 resultFirst = await taskFirst;
@@ -60,24 +63,25 @@ namespace Lab1.Manager
                 }
                 else
                     txt = $"Result of {nameFirst} + {nameSecond} can't be caulculated!";
-                IORedirector.Print($"{x}{SPLIT_SYMBOL}" +
-                    $"{isCanCalculateResult}{SPLIT_SYMBOL}" +
-                    $"{finalResult}{SPLIT_SYMBOL}" +
-                    $"{ProcessReport.ProcessReportSerialize(resultFirst)}{SPLIT_SYMBOL}" +
-                    $"{ProcessReport.ProcessReportSerialize(resultSecond)}", "result.txt", append: true);
+                if (!isCanceled)
+                    IORedirector.Print($"{x}{SPLIT_SYMBOL}" +
+                        $"{isCanCalculateResult}{SPLIT_SYMBOL}" +
+                        $"{finalResult}{SPLIT_SYMBOL}" +
+                        $"{ProcessReport.ProcessReportSerialize(resultFirst)}{SPLIT_SYMBOL}" +
+                        $"{ProcessReport.ProcessReportSerialize(resultSecond)}", RESULT_FILE_NAME, append: true);
             }
             return txt;
         }
         private string CheckIfMemoized(string nameFirst, string nameSecond, int x, string resultPathName)
         {
-            double memoizedResult = double.NaN;
             ProcessReport resultFirst = null, resultSecond = null;
+            double memoizedResult = double.NaN;
             bool isSuccess = true;
             string txt = string.Empty;
+            string[] memoizedStringRes;
             List<string> results = IORedirector.ReadLines(pathName: resultPathName, printErrorIfFileNotFound: false);
             if (results?.Count <= 0)
                 return txt;
-            string[] memoizedStringRes;
             memoizedStringRes = results.Find(line => line.Split(SPLIT_SYMBOL)[0].Equals(x.ToString()))?.Split(SPLIT_SYMBOL);
             if (memoizedStringRes != null)
             {
@@ -101,7 +105,7 @@ namespace Lab1.Manager
                     txt += $"{nameSecond} result: ";
                     txt += resultSecond != null ? resultSecond + "\n" : "undefined\n";
                     txt += isSuccess ? $"Result of {nameFirst} + {nameSecond}: " + memoizedResult.ToString()
-                        : $"Result of {nameFirst} + {nameSecond} can't be caulculated";
+                        : $"Result of {nameFirst} + {nameSecond} can't be calculated";
                 }
                 return txt;
             }
@@ -109,18 +113,19 @@ namespace Lab1.Manager
         }
         private async Task<ProcessReport> FunCompute(string name, string funType, int x, string functionsAssemblyName)
         {
-            ProcessReport result = null;
             resultIfError = null;
+            ProcessReport result = null;
             string txt;
             try
             {
-                result = await CalculateFunProcessAsync(funType, x, functionsAssemblyName: functionsAssemblyName);
+                var task = CalculateFunProcessAsync(funType, x, functionsAssemblyName: functionsAssemblyName);
+                result = await task;
                 txt = $"\n{name} result: {result}";
                 IORedirector.PrintLineStandartOut(txt);
             }
             catch (TimeoutException ex)
             {
-                IORedirector.PrintError($"Timeout Error occured in the {name}: " + ex.Message, append: true);
+                IORedirector.PrintError($"Timeout Error occured in the {name}: " + ex.Message);
                 if (resultIfError != null)
                 {
                     txt = $"{name} result at the moment: {resultIfError}";
@@ -133,7 +138,7 @@ namespace Lab1.Manager
             catch (Exception ex)
             {
                 // IORedirector.PrintLineStandartOut("Error occured in the first process: " + ex.Message);
-                IORedirector.PrintError($"Error occured in the {name}: " + ex.Message, append: true);
+                IORedirector.PrintError($"Error occured in the {name}: " + ex.Message);
                 if (resultIfError != null)
                 {
                     txt = $"{name} result at the moment: {resultIfError}";
@@ -148,8 +153,8 @@ namespace Lab1.Manager
             ProcessReport processReport = null;
             if (!string.IsNullOrEmpty(read))
             {
-                string[] arr = read.Split("\n");
                 string lastLine = null;
+                string[] arr = read.Split("\n");
                 for (int i = 0; i < arr.Length; i++)
                 {
                     if (!string.IsNullOrEmpty(arr[i]))
@@ -190,7 +195,7 @@ namespace Lab1.Manager
                 {
                     if (proc.StandardOutput.Peek() != -1)
                         consoleReadText = proc.StandardOutput.ReadToEnd();
-                    if (proc.ExitCode == (int)ProcessStatus.COMPUTING_SUCCESS || proc.ExitCode == (int)ProcessStatus.COMPUTING_SOFT_ERROR)
+                    if (proc.ExitCode == (int)ProcessStatus.COMPUTING_SUCCESS)
                         tcs.TrySetResult(ReadLastLine(consoleReadText));
                     else
                     {
@@ -201,7 +206,7 @@ namespace Lab1.Manager
                     }
                 };
                 proc.Start();
-                Action cancelTask = () =>
+                Action killProcess = () =>
                 {
                     proc.Kill();
                     if (proc.StandardOutput.Peek() != -1)
@@ -216,12 +221,16 @@ namespace Lab1.Manager
                     if (processReport != null)
                         IORedirector.PrintLineStandartOut(processReport.ToString());
                 };
-                CancelEvent += cancelTask;
+                CancelEvent += () =>
+                {
+                    killProcess?.Invoke();
+                    tcs.TrySetCanceled(new CancellationToken());
+                };
                 ShowFunInfoEvent += showInfo;
                 // This is the timeout mechanism
                 if (await Task.WhenAny(tcs.Task, Task.Delay(timeout)) != tcs.Task)
                 {
-                    cancelTask?.Invoke();
+                    killProcess?.Invoke();
                     // Timeout happened. Kill the process and throw an exception.
                     tcs.TrySetException(new TimeoutException($"Process exceeded the timeout of {timeout.TotalMilliseconds} milliseconds."));
                 }
