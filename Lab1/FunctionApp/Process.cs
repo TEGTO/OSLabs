@@ -1,5 +1,5 @@
-﻿using ClassLibrary.Function;
-using ClassLibrary.Process;
+﻿using ClassLibrary.Process;
+using Lab1.Function;
 using Lab1.MyIO;
 
 class Process
@@ -85,7 +85,7 @@ class Process
         double result = double.NaN; ;
         Type type = Type.GetType(FunType);
         object convertedFun = Activator.CreateInstance(type);
-        FunctionBase fun = (FunctionBase)convertedFun;
+        IFunctionBase fun = (IFunctionBase)convertedFun;
         result = fun.MakeCalculations(x);
         //if (double.IsNaN(result))
         //    throw new InvalidOperationException();

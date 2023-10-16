@@ -8,7 +8,6 @@ namespace Lab1.MyIO
     {
         private const string INPUT_FILE = "input.txt";
         private const string OUTPUT_FILE = "output.txt";
-        private const string ERROR_FILE = "errors.txt";
         private static TextReader standartTextReader;
         private static TextWriter standartTextWriter;
         private static Microsoft.Extensions.Logging.ILogger<Lab1.MyIO.IORedirector> logger = LoggerFactory.Create(builder => builder.AddNLog()).CreateLogger<IORedirector>();

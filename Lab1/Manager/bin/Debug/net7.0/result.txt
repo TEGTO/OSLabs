@@ -13,3 +13,5 @@
 445445◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.9890024317431271,"AmountOfSoftErrors":0,"CalculationStatus":0}
 51515◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.7421909116573137,"AmountOfSoftErrors":0,"CalculationStatus":0}
 51518◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.8293404427522534,"AmountOfSoftErrors":0,"CalculationStatus":0}
+1451◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":-0.40392734511871536,"AmountOfSoftErrors":0,"CalculationStatus":0}
+4141◙False◙NaN◙null◙{"FunType":"ClassLibrary.Function.Types.FunctionB, ClassLibrary","Result":0.37173993514258197,"AmountOfSoftErrors":0,"CalculationStatus":0}

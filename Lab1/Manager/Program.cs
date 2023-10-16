@@ -76,8 +76,7 @@ namespace Lab1
                                 case ConsoleKey.C:
                                     IORedirector.ReleaseConsoleOutput();
                                     IORedirector.PrintLineStandartOut("Processes have been killed by user!");
-                                    myManager.CancelEvent?.Invoke();
-
+                                    myManager.UserCancelEvent?.Invoke();
                                     break;
                                 case ConsoleKey.I:
                                     IORedirector.ReleaseConsoleOutput();

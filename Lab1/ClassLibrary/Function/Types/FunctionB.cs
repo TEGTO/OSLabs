@@ -1,8 +1,12 @@
-﻿namespace ClassLibrary.Function.Types
+﻿using Lab1.Function;
+
+namespace ClassLibrary.Function.Types
 {
-    public class FunctionB : FunctionBase
+    public class FunctionB : IFunctionBase
     {
-        public override double MakeCalculations(double x) =>
-            Math.Sin(x);
+        public double MakeCalculations(double x)
+        {
+            return Math.Sin(x);
+        }
     }
 }

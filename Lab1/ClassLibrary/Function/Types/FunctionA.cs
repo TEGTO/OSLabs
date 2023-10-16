@@ -1,11 +1,13 @@
-﻿namespace ClassLibrary.Function.Types
+﻿using Lab1.Function;
+
+namespace ClassLibrary.Function.Types
 {
-    public class FunctionA : FunctionBase
+    public class FunctionA : IFunctionBase
     {
         private static int amountOfSoftErrors = 0;
-        public override double MakeCalculations(double x)
+        public double MakeCalculations(double x)
         {
-            if (amountOfSoftErrors < 5)
+            if (amountOfSoftErrors < 2)
             {
                 amountOfSoftErrors++;
                 throw new InvalidOperationException();
