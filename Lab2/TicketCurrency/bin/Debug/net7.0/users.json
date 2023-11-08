@@ -1,0 +1,34 @@
+[
+  {
+    "Name": "UserA",
+    "UserPriority": 1,
+    "Processes": [
+      {
+        "Name": "Process1 UserA",
+        "BurstTime": 10.5,
+        "Priority": 1
+      },
+      {
+        "Name": "Process2 UserA",
+        "BurstTime": 8,
+        "Priority": 2
+      }
+    ]
+  },
+  {
+    "Name": "UserB",
+    "UserPriority": 2,
+    "Processes": [
+      {
+        "Name": "Process3 UserB",
+        "BurstTime": 10.5,
+        "Priority": 1
+      },
+      {
+        "Name": "Process4 UserB",
+        "BurstTime": 8,
+        "Priority": 2
+      }
+    ]
+  }
+]

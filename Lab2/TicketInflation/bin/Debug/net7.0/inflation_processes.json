@@ -1,0 +1,14 @@
+[
+  {
+    "RequestChance": 10,
+    "Name": "Process1",
+    "BurstTime": 10.5,
+    "Priority": 1
+  },
+  {
+    "RequestChance": 20,
+    "Name": "Process2",
+    "BurstTime": 8,
+    "Priority": 2
+  }
+]

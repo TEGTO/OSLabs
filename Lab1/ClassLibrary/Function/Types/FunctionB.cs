@@ -6,6 +6,7 @@ namespace ClassLibrary.Function.Types
     {
         public double MakeCalculations(double x)
         {
+           // Thread.Sleep(10000);
             return Math.Sin(x);
         }
     }

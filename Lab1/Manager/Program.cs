@@ -34,15 +34,17 @@ namespace Lab1
                             myManager.SetX(x);
                             isManagerFinished = false;
                             // Start monitoring for key press in a separate task
+                            var waitMyManager = myManager.GetComputedResult(); // Якщо без await викликати перед викликом PromtMenu, меню не буде працювати
                             Task monitorKeyPress = Task.Run(() =>
                             {
                                 PromtMenu(myManager);
                             });
-                            resultTxtPeport = await myManager.GetComputedResult();
+                            await waitMyManager;
+                            resultTxtPeport = waitMyManager.Result;
                             isManagerFinished = true;
                             stopwatch.Stop();
                             await monitorKeyPress;
-                            resultTxtPeport += " Time elapsed: " + stopwatch.Elapsed;
+                            resultTxtPeport += "\nTime elapsed: " + stopwatch.Elapsed;
                             IORedirector.PrintLineStandartOut(resultTxtPeport);
                         }
                         else
@@ -75,7 +77,6 @@ namespace Lab1
                             {
                                 case ConsoleKey.C:
                                     IORedirector.ReleaseConsoleOutput();
-                                    IORedirector.PrintLineStandartOut("Processes have been killed by user!");
                                     myManager.UserCancelEvent?.Invoke();
                                     break;
                                 case ConsoleKey.I:

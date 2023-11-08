@@ -21,7 +21,7 @@ namespace Lab1.Manager
         private bool isCanCalculateResult = true;
         private int x;
         private ProcessReport resultIfError = null;
-        private Dictionary<int, string> MemoizedResults = new Dictionary<int, string>();
+        private Dictionary<int, string> memoizedResults = new Dictionary<int, string>();
         public MyManager(IFunctionBase functionA, IFunctionBase functionB, int x, string processName, string functionsAssemblyName = "")
         {
             this.typeFunctionA = functionA.GetType().ToString();
@@ -51,10 +51,14 @@ namespace Lab1.Manager
             UserCancelEvent += () => { isCanceledByUser = true; CancelEvent?.Invoke(); CancelEvent = null; };
             if (string.IsNullOrEmpty(txt))
             {
-                MemoizedResults.Add(x, string.Empty);
+                memoizedResults.Add(x, string.Empty);
                 var taskFirst = FunCompute(nameFirst, typeFunctionA, x, functionsAssemblyName: functionsAssemblyName);
                 var taskSecond = FunCompute(nameSecond, typeFunctionB, x, functionsAssemblyName: functionsAssemblyName);
                 // Await both tasks to complete
+                //taskFirst.Wait();
+                //taskSecond.Wait();
+                //resultFirst = taskFirst.Result;
+                //resultSecond = taskSecond.Result;
                 resultFirst = await taskFirst;
                 resultSecond = await taskSecond;
                 if (isCanCalculateResult)
@@ -65,17 +69,17 @@ namespace Lab1.Manager
                 else
                     txt = $"Result of {nameFirst} + {nameSecond} can't be caulculated!";
                 if (!isCanceledByUser)
-                    MemoizedResults[x] += txt + "\n";
+                    memoizedResults[x] += txt + "\n";
                 else
-                    MemoizedResults.Remove(x);
+                    memoizedResults.Remove(x);
             }
             return txt;
         }
         private string CheckIfMemoized()
         {
             string txt = string.Empty;
-            if (MemoizedResults.ContainsKey(x))
-                txt = MemoizedResults[x];
+            if (memoizedResults.ContainsKey(x))
+                txt = memoizedResults[x];
             return txt;
         }
         private async Task<ProcessReport> FunCompute(string name, string funType, int x, string functionsAssemblyName)
@@ -117,7 +121,7 @@ namespace Lab1.Manager
                 IORedirector.PrintError(txt);
                 isCanCalculateResult = false;
             }
-            MemoizedResults[x] += txt + "\n";
+            memoizedResults[x] += txt + "\n";
             return result;
         }
         private ProcessReport ReadLastLine(string read)

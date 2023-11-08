@@ -82,7 +82,7 @@ class Process
     }
     private static double FunCalculate(string FunType, int x)
     {
-        double result = double.NaN; ;
+        double result = double.NaN;
         Type type = Type.GetType(FunType);
         object convertedFun = Activator.CreateInstance(type);
         IFunctionBase fun = (IFunctionBase)convertedFun;
