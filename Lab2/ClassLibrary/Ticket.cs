@@ -22,8 +22,10 @@
         public static int CountAmountTicketsByPriority(int mutualPriority, int priority, int ticketsLength, int startIndex)
         {
             float amountOfTicketsForProcess = (priority * 100f / mutualPriority) * ticketsLength / 100f;
-            if (amountOfTicketsForProcess % 1 != 0 && ticketsLength - ((int)amountOfTicketsForProcess + startIndex + 1) >= 0)
-                amountOfTicketsForProcess = amountOfTicketsForProcess % 1 >= 0.5 ? amountOfTicketsForProcess + 1 : amountOfTicketsForProcess;
+            if (amountOfTicketsForProcess % 1 != 0 && ticketsLength - ((int)amountOfTicketsForProcess + startIndex + 1) > 0)
+                amountOfTicketsForProcess = amountOfTicketsForProcess + 1;
+            else if (ticketsLength - ((int)amountOfTicketsForProcess + startIndex) < 0)
+                amountOfTicketsForProcess = ticketsLength - startIndex;
             return (int)amountOfTicketsForProcess;
         }
     }
